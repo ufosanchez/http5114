@@ -1,4 +1,11 @@
 # http5114
-Repo to store files from HTTP5114
+In this class I learned very important concepts such as the use of
 
-This is a change!!
+- Create Accounts
+- GitHub for individuals
+- Markdown
+- GitHub in groups
+- Set Hackathon (BrickMMO)
+- Conversion (Document Conversion)
+- Deployment
+
