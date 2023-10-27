@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="conversion.css" />
+	<script src="index.js" ></script>
+    <title>Arnulfo Conversions Website</title>
+</head>
+<body>
+
+    <h1>CONVERSION</h1>
+
+    <div>
+        <label for="studs">Studs: </label>
+        <input type="number" id="studs" step="0.1" oninput="convertLength('studs')"/>
+    </div>
+
+    <div>
+        <label for="grics">grics (16 x 16 studs): </label>
+        <input type="number" id="grics" step="0.1" oninput="convertLength('grics')"/>
+    </div>
+
+    <div>
+        <label for="baseplates">Baseplates (48 x 48 studs): </label>
+        <input type="number" id="baseplates" step="0.1" oninput="convertLength('baseplates')"/>
+    </div>
+
+    <div>
+        <label for="inches">Inches: </label>
+        <input type="number" id="inches" step="0.1" oninput="convertLength('inches')"/>
+    </div>
+
+    <div>
+        <label for="feet">Feet: </label>
+        <input type="number" id="feet" step="0.1" oninput="convertLength('feet')"/>
+    </div>
+
+    <div>
+        <label for="millimeters">MMs: </label>
+        <input type="number" id="millimeters" step="0.1" oninput="convertLength('millimeters')"/>
+    </div>
+
+    <div>
+        <label for="centimeters">CMs: </label>
+        <input type="number" id="centimeters" step="0.1" oninput="convertLength('centimeters')"/>
+    </div>
+    
+    <div>
+        <label for="meters">Ms: </label>
+        <input type="number" id="meters" step="0.1" oninput="convertLength('meters')"/>
+    </div>
+
+    <script>
+        function convertLength(unitChanged) {
+            const studs = document.getElementById("studs");
+            const grics = document.getElementById("grics");
+            const baseplates = document.getElementById("baseplates");
+            const inches = document.getElementById("inches");
+            const feet = document.getElementById("feet");
+            const millimeters = document.getElementById("millimeters");
+            const centimeters = document.getElementById("centimeters");
+            const meters = document.getElementById("meters");
+  
+          const value = parseFloat(document.getElementById(unitChanged).value);
+  
+          if (isNaN(value)) {
+            return;
+          }
+  
+          switch (unitChanged) {
+            
+            case "studs":
+                grics.value = (value/16).toFixed(3);
+                baseplates.value = (value/48).toFixed(3);
+                inches.value = (value*0.315).toFixed(3);
+                feet.value = (value*0.026).toFixed(3);
+                millimeters.value = (value*7.92).toFixed(3);
+                centimeters.value = (value*0.792).toFixed(3);
+                meters.value = (value*0.00792).toFixed(3);
+                break;
+            
+            case "gric":
+                studs.value = (value/0.03125).toFixed(3);
+                baseplates.value = (value/48).toFixed(3);
+                inches.value = (value*0.315).toFixed(3);
+                feet.value = (value*0.026).toFixed(3);
+                millimeters.value = (value*7.92).toFixed(3);
+                centimeters.value = (value*0.792).toFixed(3);
+                meters.value = (value*0.00792).toFixed(3);
+                break;
+
+            case "millimeters":
+                studs.value = (value*0.125).toFixed(3);
+                grics.value = (value*0.125/16).toFixed(3);
+                baseplates.value = (value*0.125/48).toFixed(3);
+                inches.value = (value*0.0393701).toFixed(3);
+                feet.value = (value*0.00328084).toFixed(3);
+                centimeters.value = (value / 10).toFixed(3);
+                meters.value = (value / 1000).toFixed(3);
+                break;
+            case "centimeters":
+              meters.value = (value / 100).toFixed(2);
+              millimeters.value = (value * 10).toFixed(2);
+              break;
+            case "meters":
+              centimeters.value = (value * 100).toFixed(2);
+              millimeters.value = (value * 1000).toFixed(2);
+              break;
+          }
+        }
+      </script>
+    
+</body>
+</html>
+
+
